@@ -28,3 +28,6 @@ result_silhouette = metrics.silhouette_samples(df_normalize, labels, metric = 'e
 # %%
 # calculate index Davies Bouldin, best values next 0
 dbs = metrics.davies_bouldin_score(df_normalize, labels)
+# %%
+# calculate Calinski
+calinski = metrics.calinski_harabasz_score(df_normalize, labels)
