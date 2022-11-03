@@ -24,5 +24,7 @@ y_pred = kmeans.fit_predict(df_normalize)
 # %%
 labels = kmeans.labels_
 # calculate silhouette with data frame and labels, best values > 0 (positive)
-result_silhouette = metrics.silhouette_samples(df_normalizem, labels, metric = 'euc')
+result_silhouette = metrics.silhouette_samples(df_normalize, labels, metric = 'euc')
 # %%
+# calculate index Davies Bouldin, best values next 0
+dbs = metrics.davies_bouldin_score(df_normalize, labels)
