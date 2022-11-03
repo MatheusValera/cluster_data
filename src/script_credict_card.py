@@ -1,6 +1,8 @@
 # %%
 import pandas as pd
 from sklearn.preprocessing import Normalizer
+from sklearn.cluster import KMeans
+from sklearn import metrics
 # %%
 df = pd.read_csv('../database/CC_GENERAL.csv')
 # %%
@@ -16,5 +18,11 @@ df.fillna(df.median(), inplace = True)
 #normalize data frame
 df_normalize = Normalizer().fit_transform(df.values)
 # %%
-print(df_normalize)
+# generate cluster
+kmeans = KMeans(n_clusters = 5, n_init = 10, max_iter = 300)
+y_pred = kmeans.fit_predict(df_normalize)
+# %%
+labels = kmeans.labels_
+# calculate silhouette with data frame and labels, best values > 0 (positive)
+result_silhouette = metrics.silhouette_samples(df_normalizem, labels, metric = 'euc')
 # %%
