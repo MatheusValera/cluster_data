@@ -84,3 +84,4 @@ description = description.mean()
 description['n_clients'] = n_clients_cluster
 print(description)
 # %%
+# at this point requires the analysis of each cluster and draw the conclusion
